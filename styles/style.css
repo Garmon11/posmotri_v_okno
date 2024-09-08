@@ -16,6 +16,9 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content {
@@ -53,6 +56,8 @@ ol {
 }
 
 .result {
+  display: flex;
+  flex-direction: column;
   min-width: 711px;
 }
 
@@ -66,7 +71,7 @@ ol {
 .result__video-container {
   position: relative;
   width: 711px;
-  margin: 78px 30px 0 0;
+  margin: 76px 30px 0 0;
 }
 
 .search-form {
@@ -74,10 +79,11 @@ ol {
   margin: 16px 32px 0 0;
   box-sizing: border-box;
   align-items: flex-end;
+  gap: 30px;
 }
 
 .search-form__fieldset {
-  min-width: 255px;
+  min-width: 225px;
   border: 0;
 }
 
@@ -97,12 +103,16 @@ ol {
   background-color: transparent;
 }
 
-.search-form__textfield:focus, .button:focus, .content__card-link:focus, .search-form__label:focus + .search-form__checkbox{
+.search-form__textfield:focus, .button:focus, .search-form__label:focus + .search-form__checkbox{
   outline: none;
 }
 
-.search-form__textfield:has(:focus-visible), .button:has(:focus-visible), .search-form__label:has(:focus-visible) {
-  border: 1px solid #fff;
+.search-form__textfield:has(:focus-visible), .search-form__label:has(:focus-visible), .content__card-link:has(:focus-visible) {
+  outline: 2px solid #fff;
+}
+
+.button:focus-visible {
+  border: 2px solid #fff;
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
@@ -114,9 +124,14 @@ ol {
   background-color: #fff;
 }
 
-.search-form__label:hover {
+.search-form__label:hover .search-form__label-text{
   text-decoration: underline #fff;
 }
+
+.search-form__label:hover {
+  cursor: pointer;
+}
+
 
 .search-form__label {
   display: flex;
@@ -127,6 +142,8 @@ ol {
 .search-form__checkbox-list {
   display: flex;
   gap: 17px;
+  margin-bottom: 5px;
+  margin-left: 4px;
 }
 
 .search-form__label-text {
@@ -182,19 +199,21 @@ ol {
 .content__details {
   padding-top: 20px;
   min-width: 399px;
-  min-height: 534px;
+  /* min-height: 534px; */
   box-sizing: border-box;
 }
 
 .content__list {
   position: relative;
   display: flex;
-  overflow: auto;
+  overflow: hidden auto;
+  /* если я указываю только auto для overflow то у меня появляется горизонтальная 
+  прокрутка и приходится увеличивать ширину блока или уменьшать кнопку чтобы она пропадала, 
+  но тогда получается, что относительно макета у меня сильно смещается секция с карточками видео. */
   max-height: 305px;
   flex-direction: column;
-  overflow-x: hidden;
 }
-
+  
 .content__list-item:not(:last-of-type) {
   margin-bottom: 30px;
 } 
@@ -202,6 +221,7 @@ ol {
 .more-button {
   min-width: 399px;
   height: 34px;
+  margin-bottom: 2.5px;
 }
 
 .content__list-item {
@@ -213,10 +233,9 @@ ol {
 .content__video-card {
   display: flex;
   justify-content: space-between;
-  margin-right: 6px;
 }
 
-.title, .content__video-card-title {
+.content__video-card-title {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   text-overflow: ellipsis; 
@@ -229,6 +248,8 @@ ol {
 }
 
 .title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
   width: 260px;
   text-transform: uppercase;
   font-size: 75px;
@@ -245,6 +266,7 @@ ol {
 }
 
 .content__card-link {
+  display: block;
   text-decoration: none;
   color: #fff;
 }
