@@ -20,7 +20,7 @@ html {
 
 .content {
   display: flex;
-  padding: 133px 30px;
+  padding: 110px 25px;
 }
 
 h1,
@@ -119,16 +119,34 @@ ol {
 }
 
 .search-form__label {
-  width: fit-content;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 17px;
+}
+
+.search-form__label-text {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  text-align: center;
 }
 
 .search-form__textfield {
   background-color: transparent;
   color: #fff;
   border: none;
+  font-size: 16px;
+  line-height: 21.6px;
   border-top: 2px solid #fff;
   border-bottom: 2px solid #fff;
   appearance: none;
+  width: 225px;
+  height: 27px;
 }
 
 .search-form__textfield:active {
@@ -162,6 +180,7 @@ ol {
 }
 
 .content__details {
+  padding-top: 20px;
   min-width: 399px;
   min-height: 534px;
   box-sizing: border-box;
@@ -171,7 +190,7 @@ ol {
   position: relative;
   display: flex;
   overflow: auto;
-  max-height: 320px;
+  max-height: 305px;
   flex-direction: column;
   overflow-x: hidden;
 }
