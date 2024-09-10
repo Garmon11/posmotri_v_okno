@@ -1,6 +1,4 @@
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
 
@@ -24,6 +22,7 @@ html {
 .content {
   display: flex;
   padding: 110px 25px;
+  margin-left: 28px;
 }
 
 h1,
@@ -71,7 +70,8 @@ ol {
 .result__video-container {
   position: relative;
   width: 711px;
-  margin: 76px 30px 0 0;
+  height: 386px;
+  margin: 95px 30px 0 0;
 }
 
 .search-form {
@@ -103,15 +103,15 @@ ol {
   background-color: transparent;
 }
 
-.search-form__textfield:focus, .button:focus, .search-form__label:focus + .search-form__checkbox{
+.search-form__textfield:focus, .button:focus, .search-form__label:focus + .search-form__checkbox, .content__card-link:focus {
   outline: none;
 }
 
-.search-form__textfield:has(:focus-visible), .search-form__label:has(:focus-visible), .content__card-link:has(:focus-visible) {
+.search-form__textfield:has(:focus-visible), .search-form__label:has(:focus-visible) {
   outline: 2px solid #fff;
 }
 
-.button:focus-visible {
+.button:focus-visible, .content__card-link:focus-visible {
   border: 2px solid #fff;
 }
 
@@ -180,6 +180,7 @@ ol {
   font-weight: 700;
   line-height: 21.6px;
   font-size: 18px;
+  margin: 2px;
 }
 
 .button:hover {
@@ -199,17 +200,13 @@ ol {
 .content__details {
   padding-top: 20px;
   min-width: 399px;
-  /* min-height: 534px; */
   box-sizing: border-box;
 }
 
 .content__list {
   position: relative;
   display: flex;
-  overflow: hidden auto;
-  /* если я указываю только auto для overflow то у меня появляется горизонтальная 
-  прокрутка и приходится увеличивать ширину блока или уменьшать кнопку чтобы она пропадала, 
-  но тогда получается, что относительно макета у меня сильно смещается секция с карточками видео. */
+  overflow: auto;
   max-height: 305px;
   flex-direction: column;
 }
@@ -222,6 +219,7 @@ ol {
   min-width: 399px;
   height: 34px;
   margin-bottom: 2.5px;
+  margin: 0 6px 5px 0;
 }
 
 .content__list-item {
@@ -236,6 +234,7 @@ ol {
 }
 
 .content__video-card-title {
+  text-transform: uppercase;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   text-overflow: ellipsis; 
@@ -269,6 +268,7 @@ ol {
   display: block;
   text-decoration: none;
   color: #fff;
+  margin: 2px;
 }
 
 .content__video-card-thumbnail {
